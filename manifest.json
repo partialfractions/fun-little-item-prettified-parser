@@ -1,0 +1,9 @@
+{
+  "name": "Fun Little Item Prettified Parser",
+  "description": "Look your item up!",
+  "version": "1.0",
+  "manifest_version": 2,
+  "background": {
+      "page": "background.html"
+   } 
+}
