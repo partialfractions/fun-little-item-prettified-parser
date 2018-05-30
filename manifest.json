@@ -9,5 +9,9 @@
   "browser_action": {
     "default_title": "Fun Little Item Prettified Parser",
     "default_popup": "flipopup.html"
-  }
+  },
+  "icons": {
+      "32": "logo.jpeg",
+      "16": "logo.jpeg"
+  }, 
 }

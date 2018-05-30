@@ -5,20 +5,59 @@
     <title>title</title>
     <link href="flipopup.css" rel="stylesheet" type="text/css">
     <script src="flipopup.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="logo.jpeg">
   </head>
   <body>
   	<div id="placeholder-extension-popup">
   		<div class="top">
 	  		<h1 id="mainTitle">
-	  			F.L.I.P.P.
+	  			F|L|I|P|P
 	  		</h1>
 	  		<h3 id="subTitle">
 	  			Here to prettify your ugly messy item strings :)
 	  		</h3>
 	  	</div>
 	  	<div class="bottom">
-	  		<textarea onkeyup="liveOutput()" rows="25" cols="40">This is where you would paste the string</textarea> 
+	  		<textarea onkeyup="liveOutput()" id="inputArea" placeholder="Paste your item string here..."></textarea> 
 	  	</div> 
+
+	  	<div id="itemContainer">
+	  		<div id="floatingItemInfo" class="floating navbar">
+		  		<img id="itemMainImg" class="thumbnailImage" src="https://www.experts-exchange.com/questions/26390283/Verify-the-The-valid-Image-Exists-in-an-Image-URL.html">
+		  		<span id="itemName" class="importantInfo"></span>
+		  		<span id="itemID" class="importantInfo"></span>
+		  		<span id="itemValidity" class="importantInfo"></span>
+		  		<span id="itemIdentifier" class="subInfo"></span> 
+		  		<a id="itemURL" href="egwgwegeg.com" target="_blank"><i class="fas fa-external-link-square-alt"></i></a>
+	  		</div>
+	  		<div id="staticItemInfo" class="fixed infobox">
+	  			<span id="itemMerchantName" class="subInfo"></span>
+		  		<span id="itemMerchantID" class="subInfo"></span>
+		  		<span id="itemCurPrice" class="subInfo"></span><span id="itemOrigPrice" class="subInfo"></span>
+		  		<span id="itemOptionalShortInfo">
+		  			<span id="itemSKU" class="subInfo"></span> 
+		  			<span id="itemUPC" class="subInfo"></span> 
+		  			<span id="itemBrand" class="subInfo"></span>
+		  			<span id="itemSize" class="subInfo"></span>
+		  			<span id="itemColor" class="subInfo"></span>
+		  		</span>
+		  		<span id="itemDesc" class="subInfo"></span>
+		  		<span id="itemCategories" class="subInfo"></span>
+		  		<span id="itemBuyOnline" class="subInfo"></span><span id="itemBuyStore" class="subInfo"></span>
+		  		<div id="itemSpecs">
+		  		</div>
+		  		<div id="itemFeatures">
+		  		</div>
+		  		<div id="itemRatingInfo">
+		  			<span id="itemAvgRating" class="subInfo"></span>
+		  			<span id="itemNumPosRate" class="subInfo"></span>
+		  			<span id="itemNumNegRate" class="subInfo"></span>
+		  			<div id="itemReviews"></div>
+		  		</div>
+	  		</div>
+	  	</div>
   	</div>
   </body>
 </html>
