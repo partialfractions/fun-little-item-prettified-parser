@@ -3,7 +3,11 @@
   "description": "Look your item up!",
   "version": "1.0",
   "manifest_version": 2,
-  "background": {
-      "page": "background.html"
-   } 
+  "permissions": [
+          "storage"
+        ],
+  "browser_action": {
+    "default_title": "Fun Little Item Prettified Parser",
+    "default_popup": "flipopup.html"
+  }
 }
