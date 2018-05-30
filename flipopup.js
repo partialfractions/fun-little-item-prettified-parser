@@ -1,4 +1,5 @@
 const itemFields = [
+	['itemName', 'name'],
 	['itemMerchantName', 'merchant_name'],
 	['itemMerchantID', 'merchant_name'],
 	['itemCurPrice', 'price'],
@@ -7,56 +8,48 @@ const itemFields = [
 	['itemUPC', 'upc'],
 	['itemBrand', 'brand'],
 	['itemSize', 'size'],
-	['itemColor', 'colour']
+	['itemColor', 'colour'],
+	['itemDesc', 'description']
 ]
 
 
 function liveOutput() {
 	var parsedItem = convertToJSON($('#inputArea').val());
+	if(parsedItem) {
+		$('#itemContainer').css("display", "block");
+	} else {
+		$('#itemParseError').css("display", "block");
+		return;
+	}
 	var validItem = true;
 	var itemMainImg = $('#itemMainImg');
 	itemMainImg.get(0).src = parsedItem.image_source_url;
 	itemMainImg.get(0).onerror = function(){
-  		console.log("file with "+parsedItem.image_source_url+" invalid");
+  		console.log("Could not load main image from url: " + parsedItem.image_source_url);
   		validItem = false;
     }
-	var itemName = $('#itemName');
-	itemName.text(parsedItem.name);
-
 	var itemID = $('#itemID');
 	
 	var itemURL = $('#itemURL');
 	itemURL.attr('href', parsedItem.url);
 
-	var itemValidity = $('#itemValidity');
-	itemValidity.text((validItem ? 'valid' : 'invalid'));
+	for(field of itemFields) {
+		var curItemField = $('#'+field[0]);
+		curItemField.text(parsedItem[field[1]]);
+	}
+
+	var itemValidity = validItem ? $('#ValidItemIcon') : $('#InvalidItemIcon');
+	itemValidity.css("display", "inline");
+
+	var BuyOnlineIcon = parsedItem.buy_online ? $('#BuyOnlineTrue') : $('#BuyOnlineFalse');
+	BuyOnlineIcon.css("display", "inline");
+	var BuyStoreIcon = parsedItem.buy_in_store ? $('#BuyStoreTrue') : $('#BuyStoreFalse');
+	BuyStoreIcon.css("display", "inline");
+
 
 	var itemIdentifier = $('#itemIdentifier');
 	var identifyBy = parsedItem.sku ? 'SKU' : (parsedItem.upc ? 'UPC' : 'Model #');
 	itemIdentifier.text(identifyBy);
-
-	for(field in itemFields) {
-		var curItemField = $(`#${field[0]}`);
-		curItemField.text(parsedItem[field[1]]);
-	}
-
-	var itemMerchantName = $('#itemMerchantName');
-
-	var itemMerchantID = $('#itemMerchantID');
-
-	var itemCurPrice = $('#itemCurPrice');
-
-	var itemOrigPrice = $('#itemOrigPrice');
-
-	var itemSKU = $('#itemSKU');
-
-	var itemUPC = $('#itemUPC');
-
-	var itemBrand = $('#itemBrand');
-
-	var itemSize = $('#itemSize');
-
-	var itemColor = $('#itemColor');
 
 
 }
@@ -64,5 +57,12 @@ function liveOutput() {
 function convertToJSON(text) {
 	console.log(`parsing item with raw:
 	${text}`);
-	return JSON.parse(JSON.parse(text)); // TODO: parse more than standard JSON syntax later
+	var parsed;
+	try {
+		parsed = JSON.parse(JSON.parse(text));
+	} catch(err) {
+		console.log('COULD NOT PARSE ITEM INFO D:');
+		
+	}
+	return parsed; // TODO: parse more than standard JSON syntax later
 }

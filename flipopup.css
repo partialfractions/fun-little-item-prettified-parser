@@ -1,6 +1,6 @@
 #placeholder-extension-popup {
 	width: 50%;
-	height: 500px;
+	height: 600px;
 	margin-left: auto;
 	margin-right: auto;
 	font-family: "Comic Sans MS", "Papyrus", sans-serif;
@@ -13,4 +13,8 @@
 	width: 50px;
 	height: 50px;
 	border-radius: 50%;
+}
+
+#itemParseError, #itemContainer {
+	display: none;
 }
