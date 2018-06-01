@@ -21,10 +21,13 @@
 			cursor: pointer;
 			color: black;
 		}
+    .manual-input-div::-webkit-input-placeholder, .manual-input-div::placeholder {
+        color: #E03126
+    }
 	</style>
 </head>
 <body>
-  <div class="ui card" style="text-align: center; width: 350px; margin-bottom: 0px">
+  <div class="ui card" style="text-align: center; width: 350px; margin: 0">
     <div class="content" style="background-color: rgba(1, 198, 216,0.75); color: white;">
       <img class="ui image" src="flogo.png">
       Your life's already a mess.<br>
@@ -34,12 +37,15 @@
       <i class="magic icon"></i>
       Prettify From Clipboard
     </div>
-    <div class="extra content">
-      <div class="ui transparent left icon input">
-        <i class="italic icon"></i>
+    <div class="extra content" id="manualInputField">
+      <div class="ui transparent left icon input" >
+        <i id="manualInputIcon" class="italic icon"></i>
         <input type="text" placeholder="Or Enter It Yourself!" id="itemStringInput">
       </div>
     </div>
+  </div>
+  <div id="parseInProgress" class="ui active dimmer" style="display: none; border-radius: 5px">
+    <div class="ui text loader">Parsing Item...</div>
   </div>
   <script src="mainCard.js"></script>
 </body>
