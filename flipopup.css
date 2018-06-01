@@ -3,10 +3,10 @@
 	height: 600px;
 	margin-left: auto;
 	margin-right: auto;
-	font-family: "Comic Sans MS", "Papyrus", sans-serif;
-	text-align: center;
+	font-family: "Avenir", "Papyrus", sans-serif;
 	border: 2px solid red;
 	padding: 15px;
+	background-color: rgba(1, 198, 216,0.75);
 }
 
 #itemMainImg {
