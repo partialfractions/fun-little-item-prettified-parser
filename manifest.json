@@ -4,14 +4,30 @@
   "version": "1.0",
   "manifest_version": 2,
   "permissions": [
-          "storage"
+          "storage",
+          "activeTab",
+          "clipboardRead"
         ],
   "browser_action": {
     "default_title": "Fun Little Item Prettified Parser",
-    "default_popup": "flipopup.html"
+    "default_popup": "mainCard.html"
   },
   "icons": {
-      "32": "logo.jpeg",
-      "16": "logo.jpeg"
-  }, 
+    "128": "ficon.png",
+      "32": "ficon.png",
+      "24": "ficon.png",
+      "16": "ficon.png"
+  }
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": ["jquery-3.3.1.min.js", "content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    "mainCard.html",
+    "resultCard.html"
+  ]
 }
