@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Main</title>
+	<link href="flipopup.css" rel="stylesheet" type="text/css">
+	<script src="flipopup.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<link rel="icon" type="image/x-icon" href="ficon.png">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.js"></script>
+	<style>
+		.popupModal {
+			width: 350px;
+			height: 200px;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 50px;
+			text-align: center;
+
+		}
+
+		.button {
+			color: grey;
+		}
+
+		.button:hover {
+			cursor: pointer;
+			color: black;
+		}
+	</style>
+</head>
+<body>
+	<div class="popupModal">
+		<div class="ui card" style="text-align: center">
+			<div class="content" style="background-color: rgba(1, 198, 216,0.75); color: white;">
+				<img class="ui image" src="flogo.png">
+				Your life's already a mess.<br>
+				Don't let item strings pile on to that wreck.<br>
+			</div>
+			<div class="content button" onclick="console.log('clicked')">
+				<i class="magic icon"></i>
+				Prettify From Clipboard
+			</div>
+			<div class="extra content">
+				<div class="ui transparent left icon input">
+					<i class="italic icon"></i>
+					<input type="text" placeholder="Or Enter It Yourself">
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>
